@@ -5,44 +5,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora do Mityc</title>
+
     <link rel="stylesheet" href="styles.css">
+    <link href='https://css.gg/menu.css' rel='stylesheet'>
+    
 </head>
 <body>
     <div class="background">
-        <h1>Calculadora do Mityc</h1>
         <div class="calculator" style="align-content:center;">
-            <h1 style="font-size:1rem;">Calculadora Moderna</h1>
-            <p id="result" style="text-align:right; height: 1rem;"></p>
-            <table>
-                <tr>
-                <td><button class="buttons" onclick="clearResult()">C</button></td>
-                <td><button class="buttons" onclick="backspace()"><</button></td>
-                <td><button class="buttons" onclick="insert(this)">/</button></td>
-                <td><button class="buttons"onclick="insert(this)">X</button></td>
-            </tr>
-            <tr>
-                <td><button class="buttons"onclick="insert(this)">7</button></td>
-                <td><button class="buttons"onclick="insert(this)">8</button></td>
-                <td><button class="buttons"onclick="insert(this)">9</button></td>
-                <td><button class="buttons"onclick="insert(this)">-</button></td>
-            </tr>
-            <tr>
-                <td><button class="buttons"onclick="insert(this)">4</button></td>
-                <td><button class="buttons"onclick="insert(this)">5</button></td>
-                <td><button class="buttons"onclick="insert(this)">6</button></td>
-                <td><button class="buttons"onclick="insert(this)">+</button></td>
-            </tr>
-            <tr>
-                <td><button class="buttons"onclick="insert(this)">1</button></td>
-                <td><button class="buttons"onclick="insert(this)">2</button></td>
-                <td><button class="buttons"onclick="insert(this)">3</button></td>
-                <td rowspan="2"><button class="buttons" style="height: 5.3rem;" onclick="calculate()">=</button></td>
-            </tr>
-            <tr>
-                <td colspan="2"><button class="buttons" style="width: 5.3rem;" onclick="insert(this)">0</button></td>
-                <td><button class="buttons"onclick="insert(this)">.</button></td>
-            </tr>
-        </table>
+            <div class="mainCalculator">
+                <div style="display:inline-flex; margin-inline: 0.5rem;">
+                    <h1 style="font-size:0.8rem;">Calculadora Basica</h1>
+                    <div class="dropdown">
+                        <i class="gg-menu">
+                            <div class="menu"  onclick="dropDownMenu()"></div>
+                        </i>
+                        <div id="dropdownMenu" class="dropdown-content">
+                            <p class="dropdownItem" id="bt_history" onclick="openHistory()">Historico</p>
+                            <p class="dropdownItem">Outros...</p>
+                        </div>
+                    </div>
+                </div>
+                <p id="result" style="text-align:right; height: 1rem;"></p>
+                <table>
+                    <tr>
+                        <td><button class="buttons" onclick="clearResult()">C</button></td>
+                        <td><button class="buttons" onclick="backspace()"><</button></td>
+                        <td><button class="buttons" onclick="insert(this)">/</button></td>
+                        <td><button class="buttons"onclick="insert(this)">X</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="buttons"onclick="insert(this)">7</button></td>
+                        <td><button class="buttons"onclick="insert(this)">8</button></td>
+                        <td><button class="buttons"onclick="insert(this)">9</button></td>
+                        <td><button class="buttons"onclick="insert(this)">-</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="buttons"onclick="insert(this)">4</button></td>
+                        <td><button class="buttons"onclick="insert(this)">5</button></td>
+                        <td><button class="buttons"onclick="insert(this)">6</button></td>
+                        <td><button class="buttons"onclick="insert(this)">+</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="buttons"onclick="insert(this)">1</button></td>
+                        <td><button class="buttons"onclick="insert(this)">2</button></td>
+                        <td><button class="buttons"onclick="insert(this)">3</button></td>
+                        <td rowspan="2"><button class="buttons" id="equal" data-state="0" style="height: 5.3rem;" onclick="calculate()">=</button></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><button class="buttons" style="width: 5.3rem;" onclick="insert(this)">0</button></td>
+                        <td><button class="buttons"onclick="insert(this)">.</button></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="history" id="history">
+                <div style="display:inline-flex; text-align: right;">
+                    <p style="margin-left: 3rem;  padding:0.22rem; column-span: all; padding-right: 1rem;">Histórico</p>
+                    <p id="closeHistory" style="text-align: right; margin-left: 1rem;" onclick="openHistory()"><<</p>
+                </div>
+                <div id="history_content"></div>
+            </div>
         </div>
     </div>
     <script src="scripts.js"></script>

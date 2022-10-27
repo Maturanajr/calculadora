@@ -15,6 +15,7 @@
     border-radius: 0.5rem;
     padding:0.5rem;
     text-align: center;
+    display:flex;
 }
 .buttons{
     width: 2.5rem;
@@ -37,4 +38,81 @@
     color: black;
     margin: 0.2rem;
     font-size: 1rem;
+}
+
+.gg-menu{
+    margin-left: 0.5rem; 
+    align-self: center;
+    color: white;
+    cursor: pointer;
+    z-index: 0;
+}
+.gg-menu:hover{
+    color:yellow
+}
+.menu{
+    cursor: pointer;
+    background-color: black;
+    height: 1.2rem;
+    width: 1.2rem;
+    transform:translate(0%,-40%);
+    opacity: 0;
+    z-index: 1;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    align-self:center;
+  }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 10rem;
+    z-index: 1;
+}
+.dropdown-content button {
+    color: black;
+    padding: 1rem 1rem;
+    text-decoration: none;
+    display: block;
+  }
+.show {display:block;}
+.dropdownItem{
+    border: none;
+    height: auto;
+    text-align: left;
+    color: black;
+    cursor: pointer;
+}
+.dropdownItem:hover{
+    background-color: lightgray;
+}
+
+
+.history{
+    display: none;
+    height: auto;
+    width: 10rem;
+    background-color: black;
+    font-size:0.8rem;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#history_content{
+    color: black;
+    text-align: left;
+    padding-left: 0.5rem;
+    background-color: white;
+    height: 15.6rem;
+    width: 9rem;
+    margin-left: 0.3rem;
+    border-radius: 0.5rem;
+    overflow:auto;
+    border: 0.1rem solid #ccc;
+}
+
+#closeHistory{
+    cursor: pointer;
 }
