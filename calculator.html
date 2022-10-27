@@ -58,7 +58,7 @@
             <table>
                 <tr>
                 <td><button class="buttons" onclick="clearResult()">C</button></td>
-                <td><button class="buttons" ><</button></td>
+                <td><button class="buttons" onclick="backspace()"><</button></td>
                 <td><button class="buttons" onclick="insert(this)">/</button></td>
                 <td><button class="buttons"onclick="insert(this)">X</button></td>
             </tr>
@@ -78,25 +78,43 @@
                 <td><button class="buttons"onclick="insert(this)">1</button></td>
                 <td><button class="buttons"onclick="insert(this)">2</button></td>
                 <td><button class="buttons"onclick="insert(this)">3</button></td>
-                <td rowspan="2"><button class="buttons" style="height: 5.3rem;">=</button></td>
+                <td rowspan="2"><button class="buttons" style="height: 5.3rem;" onclick="calculate()">=</button></td>
             </tr>
             <tr>
                 <td colspan="2"><button class="buttons" style="width: 5.3rem;" onclick="insert(this)">0</button></td>
-                <td><button class="buttons">.</button></td>
+                <td><button class="buttons"onclick="insert(this)">.</button></td>
             </tr>
         </table>
         </div>
     </div>
     <script>
         function insert(root){
-            var result = document.getElementById('result')
-            var currentResultNumber = result.innerHTML
-            num = root.innerHTML
+            let result = document.getElementById('result')
+            let currentResultNumber = result.innerHTML
+            let num = root.innerHTML
+            if (num == 'X'){
+                num = '*'
+            }           
             result.innerHTML = currentResultNumber + num
         }
 
         function clearResult(){
             document.getElementById('result').innerHTML = ''
+        }
+
+        function backspace(){
+            let result = document.getElementById('result')
+            let currentResultNumber = result.innerHTML
+            result.innerHTML = currentResultNumber.substring(0,currentResultNumber.length - 1)
+        }
+        function calculate(){
+            let result = document.getElementById('result')
+            let currentResultNumber = result.innerHTML
+            if (currentResultNumber){
+                result.innerHTML = eval(currentResultNumber)
+            }else{
+                result.innerHTML = ''
+            }
         }
 
 
