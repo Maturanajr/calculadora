@@ -5,49 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora do Mityc</title>
-    <style>
-        *{margin: 0;padding: 0;}
-        .background{
-            background-image: linear-gradient(45deg,green,orange);
-            height:100vw;
-            color: white;
-            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
-        }
-        .calculator{
-            position: absolute;
-            background-color:black;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            border-radius: 0.5rem;
-            padding:0.5rem;
-            text-align: center;
-        }
-        .buttons{
-            width: 2.5rem;
-            height: 2.5rem;
-            font-size: 1rem;
-            cursor: pointer;
-            background-color:white;
-            border: none;
-            color: black;
-            border-radius: 0.3rem;
-            margin: 0.1rem;
-        }
-        .buttons:hover{
-            background-color:lightgoldenrodyellow
-        }
-        #result{
-            width: auto;
-            background-color: white;
-            padding: 0.2rem;
-            color: black;
-            margin: 0.2rem;
-            font-size: 1rem;
-        }
-        
-        </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="background">
@@ -87,37 +45,6 @@
         </table>
         </div>
     </div>
-    <script>
-        function insert(root){
-            let result = document.getElementById('result')
-            let currentResultNumber = result.innerHTML
-            let num = root.innerHTML
-            if (num == 'X'){
-                num = '*'
-            }           
-            result.innerHTML = currentResultNumber + num
-        }
-
-        function clearResult(){
-            document.getElementById('result').innerHTML = ''
-        }
-
-        function backspace(){
-            let result = document.getElementById('result')
-            let currentResultNumber = result.innerHTML
-            result.innerHTML = currentResultNumber.substring(0,currentResultNumber.length - 1)
-        }
-        function calculate(){
-            let result = document.getElementById('result')
-            let currentResultNumber = result.innerHTML
-            if (currentResultNumber){
-                result.innerHTML = eval(currentResultNumber)
-            }else{
-                result.innerHTML = ''
-            }
-        }
-
-
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
